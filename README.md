@@ -32,8 +32,8 @@ Follow the steps mentioned below to install and run the project.
 
 1. Clone or download the repository
 2. Go to the project directory (cd laavel-coreui) and run `composer install` and `npm install`
-  1. It will install all the laravel (PHP) packages by the command `composer install` (if you do not have `composer` then install it - https://getcomposer.org/download/)
-  2. It will install all the NPM packages by the command `npm install` (if you do not have npm then install it - https://nodejs.org/en/download)
+    1. It will install all the laravel (PHP) packages by the command `composer install` (if you do not have `composer` then install it - https://getcomposer.org/download/)
+    2. It will install all the NPM packages by the command `npm install` (if you do not have npm then install it - https://nodejs.org/en/download)
 3. Create `.env` file by copying the `.env.example`. You may use the command to do that `cp .env.example .env`
 4. Run the command `composer run-script post-create-project-cmd` to APP_KEY
 5. Update the database name and credentials in `.env` file
@@ -49,6 +49,24 @@ Using the Docker, you may run the project
 1. docker-compose up
 
 Important note: if you get broken page then run the command `npm run dev` or `npm run build`
+
+# Screenshots
+Login View
+![login](https://github.com/bilaschandra/laravel-coreui/assets/5582015/5ca1d995-90be-4e02-b3ee-693fad45b588)
+
+Dashboard View
+![dashboard](https://github.com/bilaschandra/laravel-coreui/assets/5582015/9d233ac2-83e9-4668-8413-e6c150bc0b37)
+
+Users View
+![User-List-Laravel](https://github.com/bilaschandra/laravel-coreui/assets/5582015/a3088739-7771-4264-9378-9523dcbfae35)
+
+Roles View
+![Role-list-Laravel](https://github.com/bilaschandra/laravel-coreui/assets/5582015/2d1b52d2-63d0-40bd-b10a-5c07f2db169c)
+
+Permissions View
+![Permission-List-Laravel](https://github.com/bilaschandra/laravel-coreui/assets/5582015/a69a3a8a-956f-4fe2-8c53-0e642ba8099d)
+
+
 
 ## License
 
