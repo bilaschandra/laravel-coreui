@@ -31,18 +31,24 @@ Laravel 10.x requires a minimum PHP version of 8.1.
 Follow the steps mentioned below to install and run the project.
 
 1. Clone or download the repository
-2. Go to the project directory (cd laavel-coreui) and run `composer install`
+2. Go to the project directory (cd laavel-coreui) and run `composer install` and `npm install`
+  1. It will install all the laravel (PHP) packages by the command `composer install` (if you do not have `composer` then install it - https://getcomposer.org/download/)
+  2. It will install all the NPM packages by the command `npm install` (if you do not have npm then install it - https://nodejs.org/en/download)
 3. Create `.env` file by copying the `.env.example`. You may use the command to do that `cp .env.example .env`
-4. Update the database name and credentials in `.env` file
-5. Run the command `php artisan migrate --seed`
-6. Link storage directory: `php artisan storage:link`
-7. You may create a virtualhost entry to access the application or run `php artisan serve` from the project root and visit `http://127.0.0.1:8000`
+4. Run the command `composer run-script post-create-project-cmd` to APP_KEY
+5. Update the database name and credentials in `.env` file
+6. Run the command `php artisan migrate --seed`
+7. Run the command `php artisan db:seed --class=UserSeeder` to create user, it will generate super admin `super@admin.com` and the password is `secret`
+8. Link storage directory: `php artisan storage:link`
+9. You may create a virtualhost entry to access the application or run `php artisan serve` from the project root and visit `http://127.0.0.1:8000`
 
 OR
 
 Using the Docker, you may run the project
 
 1. docker-compose up
+
+Important note: if you get broken page then run the command `npm run dev` or `npm run build`
 
 ## License
 

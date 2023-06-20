@@ -12,6 +12,7 @@ services:
             - 'host.docker.internal:host-gateway'
         ports:
             - '${APP_PORT:-80}:80'
+            - 5173:5173
         environment:
             WWWUSER: '${WWWUSER}'
             LARAVEL_SAIL: 1
@@ -19,11 +20,12 @@ services:
             XDEBUG_CONFIG: '${SAIL_XDEBUG_CONFIG:-client_host=host.docker.internal}'
         volumes:
             - '.:/var/www/html'
+            - './docker/php.ini:/etc/php/8.1/cli/conf.d/99-sail.ini'
         networks:
             - laravel-coreui
         depends_on:
             - mysql
-            - redis
+            # - redis
     mysql:
         image: bitnami/mysql:8.0.23
         ports:
@@ -35,18 +37,21 @@ services:
             MYSQL_USER: '${DB_USERNAME}'
             MYSQL_PASSWORD: '${DB_PASSWORD}'
             MYSQL_ALLOW_EMPTY_PASSWORD: 1
+            ALLOW_EMPTY_PASSWORD: 'yes'
+            MYSQL_AUTHENTICATION_PLUGIN: 'mysql_native_password'
         volumes:
+            - "./docker/my.cnf:/etc/mysql/my.cnf"
             - 'laravel-mysql:/var/lib/mysql'
         networks:
             - laravel-coreui
-    redis:
-        image: 'redis:alpine'
-        ports:
-            - '${FORWARD_REDIS_PORT:-6379}:6379'
-        volumes:
-            - 'laravel-redis:/data'
-        networks:
-            - laravel-coreui
+    # redis:
+    #     image: 'redis:alpine'
+    #     ports:
+    #         - '${FORWARD_REDIS_PORT:-6379}:6379'
+    #     volumes:
+    #         - 'laravel-redis:/data'
+    #     networks:
+    #         - laravel-coreui
 networks:
     laravel-coreui:
         driver: bridge

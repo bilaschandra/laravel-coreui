@@ -1,8 +1,6 @@
-// Fonts
-@import url('https://fonts.bunny.net/css?family=Nunito');
+@import "_variables";
 
-// Variables
-@import 'variables';
+@import "coreui/style.scss";
 
-// Bootstrap
-@import 'bootstrap/scss/bootstrap';
+@import "_custom";
+@import "_layout";
