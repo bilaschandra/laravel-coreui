@@ -44,7 +44,7 @@ Edit User
                         <select class="form-control" name="role" required>
                             <option value="">Select role</option>
                             @foreach($roles as $role)
-                            <option value="{{ $role->id }}" {{ in_array($role->name, $userRole) 
+                            <option value="{{ $role->id }}" {{ in_array($role->name, $userRole)
                                     ? 'selected'
                                     : '' }}>{{ $role->name }}</option>
                             @endforeach
@@ -55,7 +55,7 @@ Edit User
                     </div>
 
                     <button type="submit" class="btn btn-primary">Update user</button>
-                    <a href="{{ route('users.index') }}" class="btn btn-default">Cancel</button>
+                    <a href="{{ route('users.index') }}" class="btn btn-default">Cancel</a>
                 </form>
             </div>
         </div>
