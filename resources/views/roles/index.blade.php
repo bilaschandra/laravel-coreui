@@ -42,10 +42,11 @@ Role list
                         <a class="btn btn-primary btn-sm" href="{{ route('roles.edit', $role->id) }}">Edit</a>
                     </td>
                     <td>
-                        {!! Form::open(['method' => 'DELETE','route' => ['roles.destroy',
-                        $role->id],'style'=>'display:inline']) !!}
-                        {!! Form::submit('Delete', ['class' => 'btn btn-danger btn-sm']) !!}
-                        {!! Form::close() !!}
+                        <form action="{{ route('roles.destroy', $role->id) }}" method="POST" style="display:inline;">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                        </form>
                     </td>
                 </tr>
                 @endforeach
